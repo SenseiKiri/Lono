@@ -1,5 +1,14 @@
 apply plugin: 'java'
 
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    implementation 'com.github.sealedtx:java-youtube-downloader:2.4.5'
+}
+
 repositories {
     mavenCentral()
+    // For downloading the youtube downloader
+    maven {url 'https://jitpack.io'}
 }
