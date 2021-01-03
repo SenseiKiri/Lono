@@ -1,0 +1,18 @@
+plugins {
+    id 'base'
+    id 'com.palantir.docker'
+}
+
+task copyJar(type: Copy) {
+    from project(':lono').tasks.withType(Jar) //Take the .jar from lono subproject
+    rename('.*', 'lono.jar')
+    into "${buildDir}/resources"
+}
+
+docker {
+    name "${project.rootProject.name}:${project.version}"
+    dockerfile file('resources/Dockerfile')
+    copySpec.from("${buildDir}/resources")
+}
+
+docker.dependsOn(copyJar)

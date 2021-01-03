@@ -1,2 +1,0 @@
-com/senseikiri/lono/Main.java
- com.senseikiri.lono.Main

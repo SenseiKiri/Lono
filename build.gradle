@@ -1,29 +1,29 @@
 plugins {
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-    id 'java'
+    id 'com.palantir.docker' version '0.25.0'
+    id 'java' // For setting source/target compatibility
 }
 
-dependencyManagement {
-    imports {
-        mavenBom 'org.springframework.boot:spring-boot-dependencies:2.4.1'
+allprojects {
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.senseikiri.lono'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 11
+    targetCompatibility = 11
+
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.boot:spring-boot-dependencies:2.4.1'
+        }
+        dependencies {
+            dependency 'com.github.sealedtx:java-youtube-downloader:2.4.5'
+        }
     }
-    dependencies {
-        dependency 'com.github.sealedtx:java-youtube-downloader:2.4.5'
+
+    repositories {
+        mavenCentral()
+        // For downloading the youtube downloader
+        maven { url 'https://jitpack.io' }
     }
-}
-
-dependencies {
-    annotationProcessor 'org.projectlombok:lombok'
-
-    compileOnly 'org.projectlombok:lombok'
-
-    implementation 'org.slf4j:slf4j-api'
-    implementation 'com.github.sealedtx:java-youtube-downloader'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-}
-
-repositories {
-    mavenCentral()
-    // For downloading the youtube downloader
-    maven {url 'https://jitpack.io'}
 }

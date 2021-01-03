@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.4.1'
+}
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok'
+
+    compileOnly 'org.projectlombok:lombok'
+
+    implementation 'org.slf4j:slf4j-api'
+    implementation 'com.github.sealedtx:java-youtube-downloader'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
