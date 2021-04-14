@@ -4,7 +4,7 @@ plugins {
 }
 
 task copyJar(type: Copy) {
-    from project(':lono').tasks.withType(Jar) //Take the .jar from lono subproject
+    from project(':backend').tasks.withType(Jar) //Take the .jar from lono subproject
     rename('.*', 'lono.jar')
     into "${buildDir}/resources"
 }
