@@ -1,0 +1,10 @@
+plugins {
+    id 'com.github.node-gradle.node'
+    id 'base'
+}
+
+node {
+    version '14.16.1'
+}
+
+build.dependsOn(npmInstall)

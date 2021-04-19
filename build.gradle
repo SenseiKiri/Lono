@@ -1,6 +1,7 @@
 plugins {
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'com.palantir.docker' version '0.25.0'
+    id 'com.github.node-gradle.node' version '3.0.1'
     id 'java' // For setting source/target compatibility
 }
 

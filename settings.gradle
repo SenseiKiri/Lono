@@ -1,4 +1,5 @@
 rootProject.name = 'lono'
 
 include 'backend'
+include 'client'
 include 'docker'
